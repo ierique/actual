@@ -51,6 +51,7 @@ test.describe('Settings', () => {
       route.fulfill({ body: ':root { --color-pageBackground: #eeeeee; }' }),
     );
     await page.evaluate(() => window.Actual.setTheme('light'));
+    await settingsPage.goToSection('Appearance');
     await page.getByRole('button', { name: 'Light', exact: true }).click();
     await page
       .getByRole('button', { name: 'Custom theme', exact: true })
